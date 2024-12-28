@@ -23,7 +23,7 @@ jobs:
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.ATEF2178 }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          password: ${{ secrets.ATEF2178 }}
 
       # Step 4: Build and push Docker image
       - name: Build and push Docker image
