@@ -22,7 +22,7 @@ jobs:
       - name: Log in to DockerHub
         uses: docker/login-action@v2
         with:
-          username: ${{ secrets.atef2178 }}
+          username: ${{ secrets.dckr_pat_Ei3oarobD1fUz5ThkteD7XuoY3Y }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       # Step 4: Build and push Docker image
