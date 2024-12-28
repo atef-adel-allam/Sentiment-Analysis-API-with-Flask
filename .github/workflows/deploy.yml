@@ -22,8 +22,13 @@ jobs:
       - name: Log in to DockerHub
         uses: docker/login-action@v2
         with:
+<<<<<<< HEAD
           username: "atef2178"  # Replace with your actual DockerHub username
           password: "dckr_pat_CD9WWgq5rs2TlqsZpiDU5REbIqI"  # Replace with your actual DockerHub password or token
+=======
+          username: ${{ secrets.ATEF2178 }}
+          password: ${{ secrets.ATEF2178 }}
+>>>>>>> 9ad25f8da651a130ffed97916e38c8198335c393
 
       # Step 4: Build and push Docker image
       - name: Build and push Docker image
