@@ -33,7 +33,7 @@ jobs:
           push: true
           tags: atef2178/flask_app:latest
 
-      # Step 5: Deploy to server (Optional)
+      # Step 5: Deploy to server (Optio nal)
       - name: Deploy to server
         env:
           SERVER_USER: ${{ secrets.SERVER_USER }}
