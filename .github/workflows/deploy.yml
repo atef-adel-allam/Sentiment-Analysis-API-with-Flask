@@ -31,7 +31,9 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.ATEF2178 }}/flask_app:latest  # Replace with your DockerHub username and repository
+          tags: ${{ secrets.ATEF2178 }}/flask_app:latest  
+          
+          # Replace with your DockerHub username and repository
 
       # Step 5: Deploy to server (Optional)
       - name: Deploy to server
