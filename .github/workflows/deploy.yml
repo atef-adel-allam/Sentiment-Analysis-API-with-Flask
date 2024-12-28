@@ -33,7 +33,7 @@ jobs:
           push: true
           tags: ${{ secrets.ATEF2178 }}/flask_app:latest
 
-      # Step 5: Deploy to server (Optional)
+      # Step 5: Deploy to server (Optiona  l)
       - name: Deploy to server
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} << EOF
