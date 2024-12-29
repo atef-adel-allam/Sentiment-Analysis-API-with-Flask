@@ -11,6 +11,12 @@ with open('logistic_regression_model.pkl', 'rb') as model_file:
 with open('tfidf_vectorizer.pkl', 'rb') as vectorizer_file:
     tfidf_vectorizer = pickle.load(vectorizer_file)
 
+
+
+@app.route('/')
+def home():
+    return jsonify({"message": "Welcome to the Sentiment Analysis API! Use the /predict endpoint to get predictions."})
+
 @app.route('/predict', methods=['POST'])
 def predict():
     
