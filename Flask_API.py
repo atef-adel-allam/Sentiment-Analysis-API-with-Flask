@@ -46,3 +46,6 @@ def predict_sentiment():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+# curl -X POST -H "Content-Type: application/json" -d '{"text": "I love this movie!"}' http://127.0.0.1:5000/predict 

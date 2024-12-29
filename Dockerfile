@@ -1,21 +1,27 @@
-# Use an official Python runtime as a parent image
 FROM python:3.9-slim
 
-# Set the working directory in the container
+# directory in the container
 WORKDIR /app
 
 # Copy the current directory contents into the container at /app
 COPY . /app
 
-# Install the dependencies from requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Expose the port your Flask app runs on
 EXPOSE 5000
 
-# Define environment variables (optional, depending on your application)
 ENV FLASK_APP=flask_LR_API.py
 ENV FLASK_ENV=development
 
-# Run the Flask app when the container starts
 CMD ["flask", "run", "--host=0.0.0.0"]
+
+
+
+
+
+
+
+# docker build -t flask_lr_api .
+
+# docker run -p 5000:5000 flask_lr_api
+

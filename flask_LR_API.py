@@ -13,25 +13,23 @@ with open('tfidf_vectorizer.pkl', 'rb') as vectorizer_file:
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    # Get the text input from the user
+    
     input_text = request.json['text']
 
     # Transform the input text to TF-IDF features
     input_tfidf = tfidf_vectorizer.transform([input_text])
 
-    # Make a prediction using the loaded model
     prediction = model.predict(input_tfidf)
     
-    # Also get the prediction score (probability)
     prediction_prob = model.predict_proba(input_tfidf)[0]
 
     # Interpret the prediction: 1 is positive, 0 is negative
     if prediction[0] == 1:
         sentiment = "Positive"
-        score = prediction_prob[1]  # Probability of the positive class
+        score = prediction_prob[1]  
     else:
         sentiment = "Negative"
-        score = prediction_prob[0]  # Probability of the negative class
+        score = prediction_prob[0] 
 
     # Return the sentiment and score as JSON response
     return jsonify({
