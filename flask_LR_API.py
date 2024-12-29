@@ -1,5 +1,6 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import pickle
+
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -15,8 +16,7 @@ with open('tfidf_vectorizer.pkl', 'rb') as vectorizer_file:
 
 @app.route('/')
 def home():
-    return jsonify({"message": "Welcome to the Sentiment Analysis API! Use the /predict endpoint to get predictions."})
-
+    return render_template('home.html')
 @app.route('/predict', methods=['POST'])
 def predict():
     
