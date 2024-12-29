@@ -1,35 +1,97 @@
+Here’s an updated version of your **README.md** file with enhanced structure, formatting, and additional details for clarity and professionalism:
+
+---
+
 # Sentiment-Analysis-API-with-Flask
-This repository provides a sentiment analysis solution using Flask-based APIs, pre-trained models (Logistic Regression and deep learning), and tools like a TF-IDF vectorizer. It includes a preprocessed IMDb dataset, Docker support, and a Jupyter notebook for experimentation, enabling efficient text sentiment classification and analysis.
 
-Dataset Links
-https://ai.stanford.edu/~amaas/data/sentiment/
+This repository provides a complete solution for sentiment analysis using **Flask-based APIs**, **pre-trained models** (Logistic Regression and Deep Learning), and tools like a **TF-IDF vectorizer**. The project is designed to efficiently classify text sentiment, offering a seamless way to integrate sentiment analysis into web applications.
 
+---
 
+## **Dataset**
 
-# Sentiment Analysis API
+The **IMDb dataset** is used as the foundation for training and testing the sentiment analysis models. This dataset contains 50,000 labeled movie reviews, preprocessed for feature extraction and modeling.
 
-This project provides a sentiment analysis solution that leverages Flask-based APIs for seamless integration with web applications. The API uses pre-trained models such as Logistic Regression and a custom deep learning model, combined with TF-IDF vectorization, to analyze and classify the sentiment of text data.
+You can download the dataset from the following link:
+[Stanford AI IMDb Dataset](https://ai.stanford.edu/~amaas/data/sentiment/)
 
-The dataset used is the preprocessed IMDb dataset, which provides labeled reviews for training and testing. The project includes:
-- A Flask API for serving predictions.
-- Docker support for containerized deployment.
-- A Jupyter notebook for model training and experimentation.
+---
 
-The API is simple to use and enables developers to classify text sentiment into "Positive" or "Negative" categories, making it suitable for applications like customer feedback analysis, social media monitoring, and more.
+## **Project Overview**
 
-## Features
-- **Pre-trained Models**: Logistic Regression and deep learning.
-- **Tools**: TF-IDF vectorizer and IMDb dataset.
-- **Deployment**: Dockerized application for easy scalability and portability.
+This project leverages Flask APIs to provide real-time sentiment predictions. It uses a combination of **Logistic Regression**, **Deep Learning models**, and **TF-IDF vectorization** to classify text as either "Positive" or "Negative." The solution is built
+
+for seamless integration into modern applications like customer feedback analysis and social media monitoring.
+
+### **Key Components**
+1. **Flask API**:
+   - A REST API to handle incoming requests and return sentiment predictions.
+2. **Machine Learning Models**:
+   - Pre-trained Logistic Regression and Deep Learning models.
+   - TF-IDF vectorizer for feature extraction.
+3. **Dockerized Deployment**:
+   - Containerized the API for portability and scalability.
+4. **Jupyter Notebook**:
+   - Includes training and experimentation workflows.
+
+---
+
+## **Features**
+- **Pre-trained Models**: Includes Logistic Regression and Deep Learning.
+- **Easy Integration**: RESTful API for seamless web application integration.
+- **Tools**: TF-IDF vectorizer and IMDb dataset for preprocessing.
+- **Dockerized Deployment**: Ensures scalability and portability.
 - **API Endpoints**:
   - `/predict` - Accepts JSON input to analyze sentiment.
   - `/` - Displays a welcome page with project information.
 
-## Usage
-Clone the repository, build the Docker image, and run the Flask API server. Refer to the [documentation](https://github.com/atef2178/sentiment-analysis-api) for more details.
+---
 
-Atef Adel 
+## **How to Use**
 
-+201111449824
+### **1. Clone the Repository**
+```bash
+git clone https://github.com/atef-adel-allam/Sentiment-Analysis-API-with-Flask.git
+cd Sentiment-Analysis-API-with-Flask
+```
 
-atef.i.allam@gmail.com
+### **2. Build the Docker Image**
+```bash
+docker build -t sentiment-analysis-api .
+```
+
+### **3. Run the Flask API**
+```bash
+docker run -d -p 5000:5000 sentiment-analysis-api
+```
+
+### **4. Access the API**
+- Open a browser and navigate to `http://localhost:5000/` to view the welcome page.
+- Use the `/predict` endpoint to send JSON input and get sentiment predictions.
+
+Example:
+```json
+POST /predict
+{
+    "text": "This movie was amazing!"
+}
+```
+
+---
+
+## **Applications**
+- **Customer Feedback Analysis**:
+   - Analyze customer reviews to determine satisfaction levels.
+- **Social Media Monitoring**:
+   - Classify sentiment in tweets, posts, or comments.
+- **Content Moderation**:
+   - Filter negative content in forums or platforms.
+
+---
+
+## **Contact**
+For questions or support, feel free to reach out:
+
+**Atef Adel**  
+📞 +201111449824  
+✉️ atef.i.allam@gmail.com  
