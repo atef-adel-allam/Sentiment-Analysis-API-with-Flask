@@ -13,9 +13,40 @@ with open('tfidf_vectorizer.pkl', 'rb') as vectorizer_file:
 
 
 
+
 @app.route('/')
 def home():
-    return jsonify({"message": "Welcome to the Sentiment Analysis API! Use the /predict endpoint to get predictions."})
+    return '''
+    <html>
+        <head>
+            <title>Sentiment Analysis API</title>
+            <style>
+                body {
+                    text-align: center;
+                    font-family: Arial, sans-serif;
+                    background-color: #f4f4f9;
+                }
+                h1 {
+                    color: #4CAF50;
+                    animation: fadeIn 2s ease-in-out;
+                }
+                p {
+                    color: #333;
+                    font-size: 18px;
+                }
+                @keyframes fadeIn {
+                    0% { opacity: 0; transform: translateY(-20px); }
+                    100% { opacity: 1; transform: translateY(0); }
+                }
+            </style>
+        </head>
+        <body>
+            <h1>Welcome to the Sentiment Analysis API!</h1>
+            <p>Use the <strong>/predict</strong> endpoint to get predictions.</p>
+        </body>
+    </html>
+    '''
+
 
 @app.route('/predict', methods=['POST'])
 def predict():
