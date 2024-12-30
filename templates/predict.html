@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block title %}Predict Sentiment - Sentiment Analysis API{% endblock %}
+
+{% block content %}
+<div class="predict-container">
+    <h1>Predict Sentiment</h1>
+    <form id="predict-form">
+        <textarea id="input-text" placeholder="Enter your statement here..." class="input-box"></textarea>
+        <br>
+        <button type="submit" class="analyze-btn">Analyze Sentiment</button>
+    </form>
+    <div id="result" class="result-container"></div>
+</div>
+
+<style>
+    .predict-container {
+        text-align: center;
+        padding: 50px 20px;
+    }
+
+  
+
+     .input-box {
+        width: 80%;
+        max-width: 600px;
+        height: 100px;
+        padding: 10px;
+        margin-bottom: 20px;
+        font-size: 16px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: border 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .input-box:focus {
+        border-color: #3e8e7e;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        outline: none;
+    }
+
+    .analyze-btn {
+        background-color: #3e8e7e;
+        color: white;
+        padding: 12px 25px;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .analyze-btn:hover {
+        background-color: #357a6a;
+        transform: scale(1.05);
+    }
+
+    .result-container {
+        margin-top: 20px;
+        font-size: 18px;
+        color: #333;
+        line-height: 1.6;
+    }
+
+    .result-container strong {
+        color: #3e8e7e;
+    }
+</style>
+
+<script>
+    document.getElementById('predict-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const inputText = document.getElementById('input-text').value;
+
+        const response = await fetch('/predict', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ text: inputText }),
+        });
+
+        const result = await response.json();
+        document.getElementById('result').innerHTML = `
+            <strong>Sentiment:</strong> ${result.sentiment}<br>
+            <strong>Confidence:</strong> ${result.score}
+        `;
+    });
+</script>
+{% endblock %}

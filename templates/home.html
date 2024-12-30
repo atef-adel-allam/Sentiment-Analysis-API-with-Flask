@@ -1,187 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Sentiment Analysis API</title>
-        <style>
-            /* General Styling */
-            body {
-                font-family: Arial, sans-serif;
-                margin: 0;
-                padding: 0;
-                background-color: #f8f9fa;
-                color: #333;
-            }
+{% extends "base.html" %}
 
-            /* Header Section */
-            header {
-                background: linear-gradient(135deg, #3e8e7e, #1e5b50);
-                color: white;
-                padding: 10px 20px;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                position: sticky;
-                top: 0;
-                z-index: 1000;
-            }
+{% block title %}Home - Sentiment Analysis API{% endblock %}
 
-            header h1 {
-                font-size: 20px;
-                margin: 0;
-                letter-spacing: 1px;
-            }
-
-            header nav {
-                display: flex;
-                gap: 15px;
-            }
-
-            header nav a {
-                color: white;
-                text-decoration: none;
-                font-size: 16px;
-                padding: 5px 10px;
-                border-radius: 4px;
-                transition: background-color 0.3s ease;
-            }
-
-            header nav a:hover {
-                background-color: rgba(255, 255, 255, 0.2);
-            }
-
-            /* Hero Section */
-            .hero {
-                background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/static/hero_image.jpg') no-repeat center center/cover;
-                color: white;
-                text-align: center;
-                padding: 40px 20px; /* Reduced padding */
-                animation: fadeIn 2s ease-in-out;
-            }
-
-            @keyframes fadeIn {
-                0% {
-                    opacity: 0;
-                }
-                100% {
-                    opacity: 1;
-                }
-            }
-
-            .hero h1 {
-                font-size: 32px; /* Smaller font size */
-                font-weight: bold;
-                margin: 0;
-            }
-
-            .hero p {
-                font-size: 16px; /* Reduced font size */
-                margin: 15px 0 20px;
-                color: #e0e0e0;
-            }
-
-            .hero button {
-                background-color: #3e8e7e;
-                color: white;
-                border: none;
-                padding: 8px 20px; /* Reduced button size */
-                font-size: 14px; /* Reduced font size */
-                border-radius: 4px;
-                cursor: pointer;
-                transition: background-color 0.3s ease, transform 0.2s ease;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            }
-
-            .hero button:hover {
-                background-color: #357a6a;
-                transform: translateY(-3px);
-            }
-
-            /* Features Section */
-            .features {
-                padding: 50px 20px;
-                text-align: center;
-                background-color: #ffffff;
-            }
-
-            .features h2 {
-                font-size: 32px;
-                color: #3e8e7e;
-                margin-bottom: 20px;
-            }
-
-            .features p {
-                font-size: 18px;
-                margin-bottom: 30px;
-                line-height: 1.6;
-            }
-
-            .features-list {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 25px;
-                max-width: 1100px;
-                margin: 0 auto;
-            }
-
-            .feature-item {
-                background-color: #f8f9fa;
-                padding: 20px;
-                border-radius: 8px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                width: calc(33.333% - 20px);
-                text-align: left;
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-            }
-
-            .feature-item:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            }
-
-            .feature-item h3 {
-                font-size: 20px;
-                color: #3e8e7e;
-            }
-
-            .feature-item p {
-                font-size: 16px;
-                color: #666;
-                line-height: 1.4;
-            }
-
-            /* Footer Section */
-            footer {
-                background-color: #3e8e7e;
-                color: white;
-                text-align: center;
-                padding: 15px 0;
-                margin-top: 50px;
-                animation: slideInUp 1.5s ease-in-out;
-            }
-
-            @keyframes slideInUp {
-                0% {
-                    transform: translateY(100%);
-                }
-                100% {
-                    transform: translateY(0);
-                }
-            }
-        </style>
-    </head>
-    <body>
-        <!-- Header -->
-        <header>
-            <h1>Sentiment Analysis API</h1>
-            <nav>
-                <a href="/">Home</a>
-                <a href="https://github.com/atef-adel-allam/Sentiment-Analysis-API-with-Flask" target="_blank">GitHub</a>
-            </nav>
-        </header>
+{% block content %}
 
         <!-- Hero Section -->
         <div class="hero">
@@ -189,6 +10,9 @@
             <p></p>
             <button onclick="window.open('https://github.com/atef-adel-allam/Sentiment-Analysis-API-with-Flask', '_blank');">
                 Learn More
+            </button>
+            <button onclick="window.location.href='/predict';">
+                Predict Sentiment
             </button>
         </div>
 
@@ -223,10 +47,4 @@
                 </div>
             </div>
         </section>
-
-        <!-- Footer Section -->
-        <footer>
-            <p>&copy; 2024 Sentiment Analysis API. All Rights Reserved.</p>
-        </footer>
-    </body>
-</html>
+{% endblock %}
