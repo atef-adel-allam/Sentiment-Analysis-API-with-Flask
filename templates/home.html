@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Sentiment Analysis API</title>
         <style>
             /* General Styling */
@@ -8,124 +10,223 @@
                 font-family: Arial, sans-serif;
                 margin: 0;
                 padding: 0;
-                background: linear-gradient(120deg, #e8ffe8, #c8ffd6);
+                background-color: #f8f9fa;
                 color: #333;
             }
 
+            /* Header Section */
             header {
-                background-color: #4CAF50;
+                background: linear-gradient(135deg, #3e8e7e, #1e5b50);
                 color: white;
-                padding: 20px 0;
-                text-align: center;
+                padding: 10px 20px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                position: sticky;
+                top: 0;
+                z-index: 1000;
             }
 
-            h1 {
-                font-size: 36px;
+            header h1 {
+                font-size: 20px;
                 margin: 0;
-                text-transform: uppercase;
                 letter-spacing: 1px;
             }
 
-            p {
-                font-size: 18px;
-                line-height: 1.8;
-                margin: 10px auto;
-                padding: 0 10%;
-                color: #555;
+            header nav {
+                display: flex;
+                gap: 15px;
             }
 
-            .highlight {
-                color: #4CAF50;
+            header nav a {
+                color: white;
+                text-decoration: none;
+                font-size: 16px;
+                padding: 5px 10px;
+                border-radius: 4px;
+                transition: background-color 0.3s ease;
+            }
+
+            header nav a:hover {
+                background-color: rgba(255, 255, 255, 0.2);
+            }
+
+            /* Hero Section */
+            .hero {
+                background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/static/hero_image.jpg') no-repeat center center/cover;
+                color: white;
+                text-align: center;
+                padding: 40px 20px; /* Reduced padding */
+                animation: fadeIn 2s ease-in-out;
+            }
+
+            @keyframes fadeIn {
+                0% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 1;
+                }
+            }
+
+            .hero h1 {
+                font-size: 32px; /* Smaller font size */
                 font-weight: bold;
+                margin: 0;
             }
 
-            ul {
-                text-align: left;
-                margin: 20px auto;
-                padding: 0 15%;
-                color: #555;
-                font-size: 18px;
-                line-height: 1.8;
+            .hero p {
+                font-size: 16px; /* Reduced font size */
+                margin: 15px 0 20px;
+                color: #e0e0e0;
             }
 
-            ul li {
-                margin: 10px 0;
-                list-style-type: disc;
-            }
-
-            img {
-                display: block;
-                margin: 5px auto;
-                border-radius: 10px;
-                max-width: 30%;
+            .hero button {
+                background-color: #3e8e7e;
+                color: white;
+                border: none;
+                padding: 8px 20px; /* Reduced button size */
+                font-size: 14px; /* Reduced font size */
+                border-radius: 4px;
+                cursor: pointer;
+                transition: background-color 0.3s ease, transform 0.2s ease;
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             }
 
-            .button-container {
-                text-align: center;
-                margin: 20px 0;
-            }
-
-            button {
-                background-color: #4CAF50;
-                color: white;
-                border: none;
-                padding: 15px 25px;
-                font-size: 18px;
-                border-radius: 5px;
-                cursor: pointer;
-                transition: all 0.3s ease;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            }
-
-            button:hover {
-                background-color: #45a049;
+            .hero button:hover {
+                background-color: #357a6a;
                 transform: translateY(-3px);
-                box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
             }
 
+            /* Features Section */
+            .features {
+                padding: 50px 20px;
+                text-align: center;
+                background-color: #ffffff;
+            }
+
+            .features h2 {
+                font-size: 32px;
+                color: #3e8e7e;
+                margin-bottom: 20px;
+            }
+
+            .features p {
+                font-size: 18px;
+                margin-bottom: 30px;
+                line-height: 1.6;
+            }
+
+            .features-list {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 25px;
+                max-width: 1100px;
+                margin: 0 auto;
+            }
+
+            .feature-item {
+                background-color: #f8f9fa;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                width: calc(33.333% - 20px);
+                text-align: left;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            .feature-item:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            }
+
+            .feature-item h3 {
+                font-size: 20px;
+                color: #3e8e7e;
+            }
+
+            .feature-item p {
+                font-size: 16px;
+                color: #666;
+                line-height: 1.4;
+            }
+
+            /* Footer Section */
             footer {
-                background-color: #f4f4f4;
-                color: #999;
+                background-color: #3e8e7e;
+                color: white;
                 text-align: center;
                 padding: 15px 0;
                 margin-top: 50px;
-                box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
+                animation: slideInUp 1.5s ease-in-out;
+            }
+
+            @keyframes slideInUp {
+                0% {
+                    transform: translateY(100%);
+                }
+                100% {
+                    transform: translateY(0);
+                }
             }
         </style>
     </head>
     <body>
-        <!-- Header Section -->
+        <!-- Header -->
         <header>
-            <h1>Welcome to the Sentiment Analysis API</h1>
+            <h1>Sentiment Analysis API</h1>
+            <nav>
+                <a href="/">Home</a>
+                <a href="https://github.com/atef-adel-allam/Sentiment-Analysis-API-with-Flask" target="_blank">GitHub</a>
+            </nav>
         </header>
 
-        <!-- Main Content -->
-        <img src="/static/welcome_image.jpg" alt="Welcome Image">
-        <p>
-            This project demonstrates a <span class="highlight">sentiment analysis application</span> using the 
-            IMDb movie review dataset. The goal is to classify reviews as <span class="highlight">positive</span> 
-            or <span class="highlight">negative</span> while showcasing expertise in AI, ML, and MLOps . <span class="highlight">The process involves:</span>. </p>
-        <ul>
-            <li>Dataset preparation: Preprocessing IMDb reviews for feature extraction.</li>
-            <li>Model training: Using <span class="highlight">Logistic Regression, LSTM, CNN</span>, or <span class="highlight">BERT</span>.</li>
-            <li>Flask API: Building a REST API to deliver predictions.</li>
-            <li>Dockerization: Ensuring scalability and portability.</li>
-            <li>CI/CD pipeline: Automating builds, testing, and deployment.</li>
-            <li>Deployment: Hosting the API on a cloud platform like AWS or GCP.</li>
-        </ul>
-
-        <!-- Buttons -->
-        <div class="button-container">
-            <button onclick="window.open('https://github.com/atef-adel-allam/Sentiment-Analysis-API-with-Flask/blob/main/README.md', '_blank');">
-                View API Documentation
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>Welcome to the Sentiment Analysis API</h1>
+            <p></p>
+            <button onclick="window.open('https://github.com/atef-adel-allam/Sentiment-Analysis-API-with-Flask', '_blank');">
+                Learn More
             </button>
         </div>
 
+        <!-- Features Section -->
+        <section class="features">
+            <h2>Features</h2>
+            <p>Explore the capabilities that make this API powerful and efficient for real-world applications:</p>
+            <div class="features-list">
+                <div class="feature-item">
+                    <h3>Advanced Models</h3>
+                    <p>Utilizes Logistic Regression, LSTM, CNN, and BERT for state-of-the-art accuracy.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Seamless Deployment</h3>
+                    <p>Containerized with Docker to ensure portability and quick deployment.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Real-Time Predictions</h3>
+                    <p>RESTful API ready to deliver sentiment classifications instantly.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Scalable Solution</h3>
+                    <p>Designed to scale across various industries and multiple use cases.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Cloud-Ready</h3>
+                    <p>Deploy to AWS or any cloud platform with ease.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Customizable</h3>
+                    <p>Adapt the models and API to meet specific business needs and goals.</p>
+                </div>
+            </div>
+        </section>
+
         <!-- Footer Section -->
         <footer>
-            <p>&copy; 2024 Sentiment Analysis API. All rights reserved.</p>
+            <p>&copy; 2024 Sentiment Analysis API. All Rights Reserved.</p>
         </footer>
     </body>
 </html>
