@@ -1,7 +1,3 @@
-Here’s an updated version of your **README.md** file with enhanced structure, formatting, and additional details for clarity and professionalism:
-
----
-
 # Sentiment-Analysis-API-with-Flask
 
 This repository provides a complete solution for sentiment analysis using **Flask-based APIs**, **pre-trained models** (Logistic Regression and Deep Learning), and tools like a **TF-IDF vectorizer**. The project is designed to efficiently classify text sentiment, offering a seamless way to integrate sentiment analysis into web applications.
